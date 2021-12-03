@@ -1,0 +1,139 @@
+<div>
+    <div class="control_buttons">
+        <button pButton type="button" label="button1" tabindex="1" class="p-button button_style"
+            id="firstButton"></button>
+        <button pButton type="button" label="button2" tabindex="2" class="p-button-secondary button_style"></button>
+        <button pButton type="button" label="button3" tabindex="3" class="p-button-success button_style"
+            id="thirdButton"></button>
+    </div>
+    <p-carousel [value]="questions" ngClass="hidePaginator" styleClass="custom-carousel items-carousel" [numVisible]="1"
+        [numScroll]="1" [circular]="true" (onPage)="setPage($event)" [page]="getPage()">
+        <ng-template let-question pTemplate="item">
+            <div class="product-item">
+                <div class="product-item-content" id="parentNode">
+                    <!-- <button  *ngIf="question.control == 'respondentInfoForGroup'" pButton type="button" label="contact button" [id]="question.control" class="p-button-help button_style"></button> -->
+                    <button *ngIf="question.control == 'respondentInfoForGroup'" id="conBtn" mat-raised-button
+                        class="btn-primary" style="font-weight:bold;font-size:larger;height:50px;width:420px;"
+                        (click)="onUpdate()">
+                        Click to enter or update Respondent Information
+                    </button>
+                    <ng-container
+                        *ngIf="question.control != 'respondentInfoForGroup' && question.control != 'wrapUpScreen'">
+                        <div id="dvUnit" class="row"
+                            *ngFor="let unit of listOfUnits;let i=index;let o= odd; let e=even;"
+                            [ngStyle]="{'height': unitHeight+'rem'}" [ngClass]="{ odd: o, even: e }">
+                            <div class="col-md-10" *ngIf="question.control == 'sdefvd'" class="content2">
+                                <div style="float:left; margin-right: 4em;">
+                                    <label for="TystrDropdown{{i}}" class="visuallyhidden">Select type of structure
+                                        for</label>
+                                    <select id="TystrDropdown{{i}}" style="font-weight:bold;font-size:larger"
+                                        class="igSelect">
+                                        typstrcDesc
+                                        <option *ngFor="let lokTystrc of lokTystrcs" value={{lokTystrc.typstrcDesc}}>
+                                            {{lokTystrc.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div style="float:left; margin-right:1em;"><label for="txtOthers{{i}}">Specify Structure
+                                        Type:</label></div>
+                                <div style="float:left;">
+                                    <input type="text" id="txtOthers{{i}}"
+                                        style="font-weight:bold;font-size:larger;height:40px" maxlength="64"
+                                        (focusout)="warn(i);" class="igSelect" />
+                                    &nbsp;<label role="alert" id="lblWarnTystrcSp{{i}}" style="color:red;"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-10" *ngIf="question.control == 'sded'" class="content2">
+                                <div style="float:left; margin-right: 4em;">
+                                    <label for="TystrDropdown{{i}}" class="visuallyhidden">Select type of structure
+                                        for</label>
+                                    <select id="TystrDropdown{{i}}" style="font-weight:bold;font-size:larger"
+                                        class="igSelect">
+                                        typstrcDesc
+                                        <option *ngFor="let lokTystrc of lokTystrcs" value={{lokTystrc.typstrcDesc}}>
+                                            {{lokTystrc.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div style="float:left; margin-right:1em;"><label for="txtOthers{{i}}">Specify Structure
+                                        Type:</label></div>
+                                <div style="float:left;">
+                                    <input type="text" id="txtOthers{{i}}"
+                                        style="font-weight:bold;font-size:larger;height:40px" maxlength="64"
+                                        (focusout)="warn(i);" class="igSelect" />
+                                    &nbsp;<label role="alert" id="lblWarnTystrcSp{{i}}" style="color:red;"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-10" *ngIf="question.control == 'sdd'" class="content2">
+                                <div style="float:left; margin-right: 4em;">
+                                    <label for="TystrDropdown{{i}}" class="visuallyhidden">Select type of structure
+                                        for</label>
+                                    <select id="TystrDropdown{{i}}" style="font-weight:bold;font-size:larger"
+                                        class="igSelect">
+                                        typstrcDesc
+                                        <option *ngFor="let lokTystrc of lokTystrcs" value={{lokTystrc.typstrcDesc}}>
+                                            {{lokTystrc.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div style="float:left; margin-right:1em;"><label for="txtOthers{{i}}">Specify Structure
+                                        Type:</label></div>
+                                <div style="float:left;">
+                                    <input type="text" id="txtOthers{{i}}"
+                                        style="font-weight:bold;font-size:larger;height:40px" maxlength="64"
+                                        (focusout)="warn(i);" class="igSelect" />
+                                    &nbsp;<label role="alert" id="lblWarnTystrcSp{{i}}" style="color:red;"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-10" *ngIf="question.control == 'sdevd'" class="content2">
+                                <div style="float:left; margin-right: 4em;">
+                                    <label for="TystrDropdown{{i}}" class="visuallyhidden">Select type of structure
+                                        for</label>
+                                    <select id="TystrDropdown{{i}}" style="font-weight:bold;font-size:larger"
+                                        class="igSelect">
+                                        typstrcDesc
+                                        <option *ngFor="let lokTystrc of lokTystrcs" value={{lokTystrc.typstrcDesc}}>
+                                            {{lokTystrc.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div style="float:left; margin-right:1em;"><label for="txtOthers{{i}}">Specify Structure
+                                        Type:</label></div>
+                                <div style="float:left;">
+                                    <input type="text" id="txtOthers{{i}}"
+                                        style="font-weight:bold;font-size:larger;height:40px" maxlength="64"
+                                        (focusout)="warn(i);" class="igSelect" />
+                                    &nbsp;<label role="alert" id="lblWarnTystrcSp{{i}}" style="color:red;"></label>
+                                </div>
+                            </div>
+                            <div class="col-md-10" *ngIf="question.control == 'sdefv'" class="content2">
+                                <div style="float:left; margin-right: 4em;">
+                                    <label for="TystrDropdown{{i}}" class="visuallyhidden">Select type of structure
+                                        for</label>
+                                    <select id="TystrDropdown{{i}}" style="font-weight:bold;font-size:larger"
+                                        class="igSelect">
+                                        typstrcDesc
+                                        <option *ngFor="let lokTystrc of lokTystrcs" value={{lokTystrc.typstrcDesc}}>
+                                            {{lokTystrc.name}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div style="float:left; margin-right:1em;"><label for="txtOthers{{i}}">Specify Structure
+                                        Type:</label></div>
+                                <div style="float:left;">
+                                    <input type="text" id="txtOthers{{i}}"
+                                        style="font-weight:bold;font-size:larger;height:40px" maxlength="64"
+                                        (focusout)="warn(i);" class="igSelect" />
+                                    &nbsp;<label role="alert" id="lblWarnTystrcSp{{i}}" style="color:red;"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div *ngIf="question.control == 'wrapUpScreen'">
+                        <h1>Welcome here, please enjoy</h1>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

@@ -1,0 +1,51 @@
+.product-item-content {
+  border: 1px solid var(--surface-d);
+  border-radius: 3px;
+  margin: 0.3rem;
+  text-align: center;
+  padding: 2rem 0;
+  height: 60vh;
+  background-color: bisque;
+}
+
+.product-image {
+  width: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.control_buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.button_style {
+  margin: 10px;
+}
+
+.content2 {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.p-button-secondary {
+  background-color: #607d8b;
+}
+
+.p-button-success {
+  background-color: #689f38;
+}
+
+.p-button-help {
+  background-color: #9c27b0;
+}
+
+:host ::ng-deep .items-carousel {
+    .ui-carousel-dots-container {
+      display: none !important;
+    }
+  }
+.hiddenbutton {
+  background: transparent; 
+  border-style: none;
+}
